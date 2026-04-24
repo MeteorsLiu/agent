@@ -46,7 +46,9 @@
 - When implementation is explicitly based on project design documents, do NOT expand public/exported interfaces beyond what the documents define.
 - Before adding any new exported type, function, method, interface, or package-level API, first check the project design documents explicitly named by repository instructions or by the user.
 - If no governing design document is explicitly named, ask the user before adding the API.
-- If the API is not defined in the design document, discuss it with the user before writing it into code.
+- If the API is not defined in the design document and would create or change a module boundary, discuss it with the user before writing it into code.
+- Small exported surface adjustments are allowed when they are necessary for the documented module to be usable, are directly tied to existing exported APIs, do not create a new responsibility or dependency direction, and stay minimal for the project's actual needs.
+- Do not export symbols that only belong to internal helper control flow, speculative future use, or convenience not required by the current project.
 - Unexported helpers are allowed only when they preserve the documented public boundary and do not smuggle in a new module contract.
 
 ## Change-Intent Communication (Mandatory)
