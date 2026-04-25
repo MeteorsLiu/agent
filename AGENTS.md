@@ -51,11 +51,27 @@
 - Do not export symbols that only belong to internal helper control flow, speculative future use, or convenience not required by the current project.
 - Unexported helpers are allowed only when they preserve the documented public boundary and do not smuggle in a new module contract.
 
+## Minimal API Surface Discipline (Mandatory)
+
+- Do not add type aliases or pass-through helper APIs just to preserve old names
+  or hide an existing concrete type. Use the owning type or function directly
+  unless the governing design requires a real semantic boundary.
+- Remove type aliases and helper wrappers that do not provide ownership,
+  semantic separation, or meaningful simplification.
+
 ## Change-Intent Communication (Mandatory)
 
 - Before editing code, first tell the user the intended approach and concrete purpose of the change.
 - For architecture-affecting or cross-module changes, explicitly state expected side effects/regression risks before implementation.
 - For local, low-risk fixes, keep this explanation brief and concrete.
+
+## Defensive Programming Discipline (CRITICAL)
+
+- Do NOT add defensive programming that seriously affects core logic, control flow, data flow, availability, or long-running behavior unless it has been strictly evaluated as necessary.
+- Before adding defensive programming, strictly evaluate whether it is necessary and whether its failure behavior is acceptable for the project.
+- Do not use a local defensive guard to replace an unresolved protocol, lifecycle, or recovery design.
+- Prefer preserving service continuity unless the design explicitly requires fail-closed behavior.
+- If the correct behavior depends on an undecided architecture or protocol policy, leave the runtime behavior non-disruptive and discuss the policy before enforcing it.
 
 ## Build Verification (Mandatory)
 
