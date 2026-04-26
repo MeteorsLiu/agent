@@ -59,6 +59,17 @@
 - Remove type aliases and helper wrappers that do not provide ownership,
   semantic separation, or meaningful simplification.
 
+## Library-First Engineering Discipline (Mandatory)
+
+- Do NOT hand-roll broadly solved functionality before researching maintained
+  existing libraries first.
+- This applies especially to infrastructure, protocol helpers, encoders,
+  schedulers, metrics/exporters, parsers, crypto, compression, FEC, storage,
+  networking, and other common building blocks.
+- Use a maintained library when it fits the design and dependency constraints.
+- Hand-roll only after verifying no suitable library exists, or after
+  documenting why the existing options do not fit.
+
 ## Change-Intent Communication (Mandatory)
 
 - Before editing code, first tell the user the intended approach and concrete purpose of the change.
