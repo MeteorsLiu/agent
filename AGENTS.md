@@ -61,14 +61,14 @@
 
 ## Library-First Engineering Discipline (Mandatory)
 
-- Do NOT hand-roll broadly solved functionality before researching maintained
-  existing libraries first.
-- This applies especially to infrastructure, protocol helpers, encoders,
-  schedulers, metrics/exporters, parsers, crypto, compression, FEC, storage,
-  networking, and other common building blocks.
-- Use a maintained library when it fits the design and dependency constraints.
-- Hand-roll only after verifying no suitable library exists, or after
-  documenting why the existing options do not fit.
+- Before implementing broadly solved functionality, first check whether the
+  language standard library or a mature maintained library already fits the
+  need.
+- Prefer existing libraries when they satisfy the project's design, licensing,
+  dependency, performance, and operational constraints.
+- If implementing locally, be explicit about the reason, such as unsuitable
+  library tradeoffs, narrow project-specific semantics, or keeping dependency
+  surface small.
 
 ## Change-Intent Communication (Mandatory)
 
